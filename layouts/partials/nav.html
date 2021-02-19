@@ -11,8 +11,13 @@
           {{- $social := ( .Site.Params.social ) -}}
           {{- range $platform := $social.config.platforms -}}
           {{- with $username := ( index $social $platform ) -}}
-          <a class="level-item" aria-label="{{ $platform }}" href='{{ print ( index $.Site.Data.theme.social.base $platform ) $username }}'
-            target='_blank' rel='noopener'>
+          <a
+            class="level-item"
+            aria-label="{{ $platform }}"
+            href="{{ print ( index $.Site.Data.theme.social.base $platform ) $username }}"
+            target="_blank"
+            rel="noopener"
+          >
             <span class="icon">
               <i class>
                 {{- partial "svg/icons" $platform -}}
@@ -30,8 +35,8 @@
       <div class="nav-left">
         {{- range $section, $printable := .Site.Params.sections_left -}}
         {{- if $printable -}}
-        <a class="nav-item" href="{{$section}}">
-          <h2 class="title is-5">{{$printable}}</h2>
+        <a class="nav-item" href="{{ $section }}">
+          <h2 class="title is-5">{{ $printable }}</h2>
         </a>
         {{- end -}}
         {{- end -}}
@@ -42,15 +47,14 @@
       <div class="nav-right">
         {{- range $section, $printable := .Site.Params.sections_right -}}
         {{- if $printable -}}
-        <a class="nav-item" href="{{$section}}">
-          <h2 class="title is-5">{{$printable}}</h2>
+        <a class="nav-item" href="{{ $section }}">
+          <h2 class="title is-5">{{ $printable }}</h2>
         </a>
         {{- end -}}
         {{- end -}}
       </div>
       {{ end }}
     </nav>
-
   </div>
   <script src="/js/navicon-shift.js"></script>
 </section>

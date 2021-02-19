@@ -8,9 +8,6 @@
 {{ else }}
 <title>{{ .Site.Params.Info.homeTitle }}</title>
 {{ end }}
-{{ if .Site.Params.Info.enableSocial }}
-{{- partial "social/opengraph" . -}}
-{{ end }}
 {{ if .Site.Params.rss }}
 <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
 {{ end }}
@@ -18,13 +15,34 @@
 {{- range .Site.Params.Assets.customCSS -}}
 <link rel='stylesheet' href='{{ . | absURL }}'>
 {{- end -}}
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="{{ .Permalink }}">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#f00" />
+
+<link rel="icon" href="favicon.ico" />
+<meta name="title" content="{{ .Title }} | {{ .Site.Title }}" />
+<meta name="description" content="{{ .Description }}" />
+<!-- Start of Open Graph -->
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="{{ .Description }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:image" content="{{ .Site.Params.Avatar }}" />
+<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" />
+<meta property="og:tags" content="{{ . }}" />
+<meta property="twitter:card" content="{{ .Description }}" />
+<meta property="twitter:description" content="{{ .Description }}" />
+<meta property="twitter:title" content="{{ .Title }}" />
+<meta property="twitter:site" content="{{ .Site.BaseURL }}" />
+<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" />
+<link rel="icon" href="icons/apple-touch-icon.png" type="image/x-icon" />
+<link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon-167x167.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
 </head>
 <body>

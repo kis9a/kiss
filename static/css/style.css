@@ -5032,10 +5032,10 @@ a.nav-item.is-tab.is-active {
   }
 }
 
-.nav,
-.nav>.container {
-  min-height: 50px;
-}
+/* .nav, */
+/* .nav>.container { */
+/*   min-height: 50px; */
+/* } */
 
 .nav {
   -ms-flex-align: stretch;
@@ -6407,7 +6407,7 @@ a.panel-block:hover {
 
 .section {
   background-color: #fff;
-  padding: 40px 20px;
+  padding: 30px 20px;
 }
 
 @media screen and (min-width: 980px) {
